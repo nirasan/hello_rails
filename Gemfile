@@ -50,3 +50,7 @@ gem 'hirb-unicode'
 gem 'haml-rails'
 
 gem "letter_opener", :group => :development
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
