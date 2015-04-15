@@ -6,13 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+blogs = Blog.create([
+                        {title:"ねこがすき！にゃんにゃんブログ"},
+                        {title:"いぬがすき！わんわんブログ"},
+                        {title:"つまがすき！いとうさんブログ"},
+                    ])
+
 entries = Entry.create([
-                          {title: "はじめてのエントリー", body: "はじめまして！"},
-                          {title: "2番目のエントリー", body: "おひさしぶりです！"},
-                          {title: "3番目のエントリー", body: "もうくじけました・・・"},
+                          {title: "はじめてのエントリー", body: "はじめまして！", blog:blogs[0]},
+                          {title: "2番目のエントリー", body: "おひさしぶりです！", blog:blogs[0]},
+                          {title: "3番目のエントリー", body: "もうくじけました・・・", blog:blogs[2]},
                       ])
 comments = Comment.create([
                               {body: "てすてす", status:"approved", entry:entries[0]},
-                              {body: "どうもどうも", status:"unapproved", entry:entries[0]},
+                              {body: "ねこはかわいいですよね", status:"unapproved", entry:entries[0]},
+                              {body: "例のいぬについて", status:"approved", entry:entries[1]},
                               {body: "こんにちはこんにちは！", status:"approved", entry:entries[2]},
                           ])
