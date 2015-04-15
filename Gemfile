@@ -47,3 +47,4 @@ end
 gem 'hirb'
 gem 'hirb-unicode'
 
+gem 'haml-rails'
