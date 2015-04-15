@@ -48,3 +48,5 @@ gem 'hirb'
 gem 'hirb-unicode'
 
 gem 'haml-rails'
+
+gem "letter_opener", :group => :development
