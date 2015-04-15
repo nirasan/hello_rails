@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_blog
   before_action :set_entry
-  before_action :set_comment, only: [:destroy]
+  before_action :set_comment, only: [:destroy, :approve]
 
   # POST /comments
   # POST /comments.json
@@ -26,6 +26,17 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to [@blog, @entry], notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def approve
+    @comment.status = "approved"
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to [@blog, @entry], notice: 'Comment status was successfully changed.' }
+      else
+        format.html { render :template => 'entries/show' }
+      end
     end
   end
 

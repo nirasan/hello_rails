@@ -24,7 +24,7 @@
     - @entry.comments.each do |comment|
       %tr
         %td= comment.body
-        %td= if comment.status == "unapproved" then link_to "Approve", "" else "" end
+        %td= if comment.status == "unapproved" then link_to "Approve", approve_blog_entry_comment_path(@blog, @entry, comment), method: :post else "" end
         %td= link_to "Destroy", [@blog, @entry, comment], method: :delete, data: {:confirm => "Are your sure?"}
 
 %br
